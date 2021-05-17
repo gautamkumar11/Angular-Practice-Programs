@@ -1,0 +1,5 @@
+//string interpolation
+<h3 [ngStyle] = "{backgroundColor : getColor()}"
+    [ngClass]= "{online : serverStatus === 'online' }">
+This is {{ 'Server Component' }} with ID {{ serverId }} which is {{ getServerStatus() }}</h3>
+

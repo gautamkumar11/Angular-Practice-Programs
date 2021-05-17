@@ -1,0 +1,23 @@
+
+<app-server></app-server>
+
+<div class="container">
+    <p>servers works!</p>
+    <input type = "text" name = "" [(ngModel)]="serverName" > 
+    <button 
+        style= "margin-left: 10px;"
+        class = "btn btn-success"  
+        [disabled]="!allowNewServer" 
+        (click)="onCreateServer()">Add Server
+    </button>
+   
+    <p [innerText]="allowNewServer"></p>
+    <p *ngIf = "serverCreated; else noServer">{{ serverCreationStatus }} with serverName is {{serverName}}</p>
+    <ng-template #noServer>
+        <p>{{ serverCreationStatus }}</p>
+    </ng-template>
+    <br>
+    <p>//Property binding</p>
+
+
+</div>

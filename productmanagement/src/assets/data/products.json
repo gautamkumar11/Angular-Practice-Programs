@@ -1,0 +1,32 @@
+[
+    {
+        "productId" : 1,
+        "productName": "Realme 7",
+        "productCode" : "reAL-23",
+        "releaseDate" : "8 March 2020",
+        "productPrice" : 17000,
+        "starRating"  : 4.1,
+        "imageUrl" : "/assets/images/realme7.jpg"
+
+    },
+    {
+        "productId" : 2,
+        "productName" : "Nokia 9",
+        "productCode" : "noki-23",
+        "releaseDate" : "8 March 2018",
+        "productPrice" : 56000,
+        "starRating" : 5,
+        "imageUrl" : "/assets/images/nokia-9.jpeg"
+
+    },
+    {
+        "productId" : 5,
+        "productName" : "Redmi Note 8 pro",
+        "productCode" : "xiomi-23",
+        "releaseDate" : "8 March 2019",
+        "productPrice" : 20000,
+        "starRating" : 4.5,
+        "imageUrl" : "/assets/images/redminote-8-pro.jpeg"
+
+    }
+]

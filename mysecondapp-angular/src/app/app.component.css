@@ -1,0 +1,28 @@
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-text{
+    display: inline;
+    margin: 0;
+    border: none;
+    border-radius: 0.4rem;
+    padding: 10px;
+}
+
+.app-title{
+    text-align: center;
+    font-size: 70px;
+}
+
+ul{
+    margin: 0px;
+    padding: 0px;
+}
+
+.list ul li {
+    display: block;
+    width: 100%;
+}
