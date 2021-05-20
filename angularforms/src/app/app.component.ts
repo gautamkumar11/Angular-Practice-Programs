@@ -14,6 +14,7 @@ export class AppComponent {
   submitted! : boolean;
   topics = ['react', 'angular'];
   userModel = new User('Gautam Kumar', 'kumargautam11gk@gmail.com',1234567890,'default','gautam');
+  errorMsg : string = '';
 
   topicHasError: boolean = true;
   onValidateTopic(value : string) {
@@ -28,7 +29,7 @@ export class AppComponent {
     this.submitted = true;
     this._enrollmentService.Enroll(this.userModel).subscribe(
                 data => console.log('success ! : ',data),
-                error => console.log('Error! : ', error)       
+                error => this.errorMsg = error.statusText   
     )
    // console.log(this.userModel);
   }
