@@ -11,35 +11,64 @@
         <br>
         <div class="form-group row">
           <label for="name" class="col-sm-2">UserName : </label>
-          <input [ngClass]= "{'is-invalid' : registrationForm.get('userName').invalid && registrationForm.get('userName').touched }" 
-                class="form-control col-sm-8" 
+          <input [ngClass]= "{'is-invalid' : registrationForm.controls.userName.invalid && f.userName.touched }" 
+                class="form-control col-sm-7" 
                 id="userName" 
-                formControlName = "userName"/>
+                formControlName = "userName">
+        
+          <div *ngIf="f.userName.touched && f.userName.invalid" class="text-danger col-sm-3">
+            <div *ngIf="f.userName.errors?.required">
+              Required Field
+            </div>
+            <div *ngIf="f.userName.errors?.minlength">
+              Required minimum 3 Character
+            </div>
+            <div *ngIf="f.userName.errors?.forbiddenName">
+              Custom validation error, it is not allowed 
+            </div>
+          </div>
         </div>
 
         <div class="form-group row">
           <label for="email"  class="col-sm-2">Email Address:</label>
-          <input type="email" class="form-control col-sm-8" id="email" formControlName = "email">
+          <input [class.is-invalid] = "f.email.invalid && f.email.touched"
+                 type="email" 
+                 class="form-control col-sm-7" id="email" formControlName = "email">
+          <small [class.d-none]="f.email.valid || f.email.untouched" class="text-danger">
+              Email is required
+          </small>
+        </div>
+
+        <div class="form-check mb-3" style="margin-left: 16%;">
+          <input type="checkbox" class="form-check-input" id="subscribe" formControlName = "subscribe">
+          <label for="subscribe"  class="form-check-label">Send Me Promotional Offers</label>
         </div>
 
         <div formGroupName="address">
           <div class="form-group row">
             <label for="city" class="col-sm-2">City : </label>
-            <input class="form-control col-sm-8" id="city" formControlName = "city">
+            <input class="form-control col-sm-7" id="city" formControlName = "city">
           </div>
           <div class="form-group row">
             <label for="state" class="col-sm-2">State : </label>
-            <input class="form-control col-sm-8" id="state" formControlName = "state">
+            <input class="form-control col-sm-7" id="state" formControlName = "state">
           </div>
           <div class="form-group row">
             <label for="country" class="col-sm-2">Country : </label>
-            <input class="form-control col-sm-8" id="country" formControlName = "country">
+            <input class="form-control col-sm-7" id="country" formControlName = "country">
           </div>
         </div>
         
         <div class="form-group row">
           <label for="pwd"  class="col-sm-2">Password:</label>
-          <input type="password" class="form-control col-sm-8" id="pwd" formControlName = "password">
+          <input type="password" class="form-control col-sm-7" id="pwd" formControlName = "password">
+        </div>
+
+        <div class="form-group row">
+          <label for="cpwd"  class="col-sm-2">Confirm Password:</label>
+          <input [class.is-invalid] = "registrationForm.errors?.mismatch"
+                type="password" class="form-control col-sm-7" id="cpwd" formControlName = "confirmPassword">
+          <small *ngIf="registrationForm.errors?.mismatch" class="text-danger">Password Does Not Match</small>
         </div>
 
         <div class="form-group row">
