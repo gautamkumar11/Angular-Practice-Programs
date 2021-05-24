@@ -4,7 +4,7 @@
   </div>
   <div class="card-body" >
     <div class="container">
-      <form [formGroup] = "registrationForm">
+      <form [formGroup] = "registrationForm" (ngSubmit)="onSubmit()">
         <div class="container">
           {{registrationForm.value | json}}
         </div>
@@ -44,6 +44,25 @@
           <label for="subscribe"  class="form-check-label">Send Me Promotional Offers</label>
         </div>
 
+          <div class=" form-group row">          
+            <label for="phone"  class="col-sm-2">Phone Number:</label>
+            <input type="number" 
+                   class="form-control col-sm-7" 
+                   id="phone" 
+                   formControlName = "phone">
+            <button type="button" class="btn btn-success ml-1 col-sm-2" (click) = "addAlternatePhones()">
+              Add Phone Number
+            </button>
+          </div>
+            <diV class=" form-group row" 
+                formArrayName = "alternatePhones" 
+                *ngFor= "let phone of alternatePhones.controls; let i = index">
+              <label for="phone"  class="col-sm-2">Alternate Phone:</label>
+              <input  [formControlName] = "i"
+                      type="number" 
+                      class="form-control col-sm-7" >                    
+            </diV>        
+        
         <div formGroupName="address">
           <div class="form-group row">
             <label for="city" class="col-sm-2">City : </label>
@@ -73,7 +92,7 @@
 
         <div class="form-group row">
           <div class="col-sm-12">
-            <button class ="btn btn-primary">Submit</button>
+            <button [disabled] = "!registrationForm.valid" class ="btn btn-primary">Submit</button>
             <button (click)="onLoadApiData()" class ="btn btn-secondary ml-2">Load API Data</button>
           </div>
         </div>
